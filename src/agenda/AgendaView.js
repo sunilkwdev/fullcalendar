@@ -332,7 +332,7 @@ var AgendaView = FC.AgendaView = View.extend({
 
 		// separate the events into all-day and timed
 		for (i = 0; i < events.length; i++) {
-			if (events[i].allDay) {
+			if (events[i].allDay || this.opt('forceDayView')) {
 				dayEvents.push(events[i]);
 			}
 			else {
@@ -361,6 +361,7 @@ var AgendaView = FC.AgendaView = View.extend({
 
 	// Unrenders all event elements and clears internal segment data
 	unrenderEvents: function() {
+
 
 		// unrender the events in the subcomponents
 		this.timeGrid.unrenderEvents();
