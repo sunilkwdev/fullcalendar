@@ -70,6 +70,9 @@ var AgendaView = FC.AgendaView = View.extend({
 
 		// the element that wraps the time-grid that will probably scroll
 		this.scrollerEl = this.el.find('.fc-time-grid-container');
+		if (this.opt('forceDayView')) {
+			this.scrollerEl.css('display', 'none');
+		}
 
 		this.timeGrid.setElement(this.el.find('.fc-time-grid'));
 		this.timeGrid.renderDates();
